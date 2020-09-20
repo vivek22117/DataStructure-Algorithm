@@ -5,10 +5,13 @@ public class FindThreeLargestNumbers {
     private static int[] inputData = {5, 4, 43, -2, -14, 67, 18, 0, 83, 9, -5, 36};
 
     public static void main(String[] args) {
-        findThreeLargest(inputData);
+        int[] threeLargest = findThreeLargest(inputData);
+        for (int i : threeLargest) {
+            System.out.println("Value= " + i);
+        }
     }
 
-    private static void findThreeLargest(int[] inputData) {
+    private static int[] findThreeLargest(int[] inputData) {
         if(inputData.length < 3){
             throw new RuntimeException("Please provide valid input!");
         }
@@ -18,6 +21,7 @@ public class FindThreeLargestNumbers {
         for(int value : inputData) {
             updateThreeLargestNum(largestNum, value);
         }
+        return largestNum;
     }
 
     private static void updateThreeLargestNum(int[] largestNum, int value) {
@@ -25,6 +29,8 @@ public class FindThreeLargestNumbers {
             shiftNums(largestNum, value, 2);
         } else if(value > largestNum[1]) {
             shiftNums(largestNum, value, 1);
+        } else if(value > largestNum[0]) {
+            shiftNums(largestNum, value, 0);
         }
     }
 
