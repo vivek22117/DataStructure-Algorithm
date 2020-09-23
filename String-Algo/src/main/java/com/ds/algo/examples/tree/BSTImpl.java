@@ -41,5 +41,28 @@ public class BSTImpl {
         }
     }
 
+    public void preOrderDPSTraversal(Node<Employee> head) {
+        if(head == null) {
+            return;
+        }
+
+        process(head);
+        preOrderDPSTraversal(head.getLeftNode());
+        preOrderDPSTraversal(head.getRightNode());
+    }
+
+    public void postOrderDPSTraversal(Node<Employee> head) {
+        if (head == null) {
+            return;
+        }
+
+        postOrderDPSTraversal(head.getLeftNode());
+        postOrderDPSTraversal(head.getRightNode());
+        process(head);
+    }
+
+    private void process(Node<Employee> head) {
+        System.out.print("| " + head.getElement().id);
+    }
 
 }
