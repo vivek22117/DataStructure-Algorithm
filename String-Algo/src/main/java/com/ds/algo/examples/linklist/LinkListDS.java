@@ -30,6 +30,25 @@ public class LinkListDS<T> {
         return head;
     }
 
+    public void addNode(T data) {
+        if(isEmpty()) {
+            head = new Node<>(data);
+            return;
+        }
+
+        Node<T> currentNode = this.head;
+        while (currentNode.next != null) {
+            currentNode = currentNode.next;
+        }
+        currentNode.next = new Node<>(data);
+    }
+
+    public void addNodeInBeginning(T data) {
+        Node<T> newNode = new Node<>(data);
+        newNode.next = head;
+        head = newNode;
+    }
+
     public void printLinkList() {
         Node<T> current = this.head;
         while (current != null){
