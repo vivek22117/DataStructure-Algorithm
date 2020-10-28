@@ -49,6 +49,28 @@ public class LinkListDS<T> {
         head = newNode;
     }
 
+    public T deleteNodeInBeginning() {
+        T data = head.data;
+        head = head.next;
+        return data;
+    }
+
+    public void deleteSpecificNode(T data) {
+        if(isEmpty()) {
+            return;
+        }
+
+        Node<T> current = this.head;
+        while (current != null) {
+            if(current.data == data) {
+                current = current.next;
+                return;
+            } else {
+                current = current.next;
+            }
+        }
+    }
+
     public void printLinkList() {
         Node<T> current = this.head;
         while (current != null){
