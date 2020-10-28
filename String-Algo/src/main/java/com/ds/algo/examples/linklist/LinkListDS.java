@@ -55,20 +55,20 @@ public class LinkListDS<T> {
         return data;
     }
 
-    public void deleteSpecificNode(T data) {
+    public T deleteSpecificNode(T data) {
         if(isEmpty()) {
-            return;
+            return null;
         }
 
         Node<T> current = this.head;
         while (current != null) {
             if(current.data == data) {
-                current = current.next;
-                return;
+                return current.next.data;
             } else {
                 current = current.next;
             }
         }
+        return null;
     }
 
     public void printLinkList() {
