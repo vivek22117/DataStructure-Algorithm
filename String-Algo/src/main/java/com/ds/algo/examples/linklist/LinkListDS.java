@@ -26,8 +26,8 @@ public class LinkListDS<T> {
         return head == null;
     }
 
-    public Node<T> getHead() {
-        return head;
+    public T getHead() {
+        return head.data;
     }
 
     public void addNode(T data) {

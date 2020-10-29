@@ -1,5 +1,11 @@
 package com.ds.algo.examples.linklist;
 
+import com.ds.algo.examples.util.AppUtility;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.IntStream;
+
 public class LinkListImplEmployee {
     LinkListDS<Employee> employeeLinkListDS = new LinkListDS<>();
 
@@ -17,7 +23,7 @@ public class LinkListImplEmployee {
 
     }
 
-    public LinkListDS<Employee>.Node<Employee> getFirstEmployee(){
+    public Employee getFirstEmployee(){
        return employeeLinkListDS.getHead();
     }
 
@@ -35,5 +41,15 @@ public class LinkListImplEmployee {
 
     public Employee deleteSpecificEmployee(Employee employee) {
         return employeeLinkListDS.deleteSpecificNode(employee);
+    }
+
+    public List<Employee> populateEmployees() {
+        List<Employee> employeeList = new ArrayList<>();
+        IntStream.iterate(0, e -> e +1).limit(22).forEach(value -> {
+            int randomNum = AppUtility.getRandomNum(55, 11, 22);
+            employeeList.add(new Employee("A " + randomNum, "Pune", (long) randomNum));
+        });
+
+        return employeeList;
     }
 }
