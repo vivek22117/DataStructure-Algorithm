@@ -23,7 +23,7 @@ public class LinkListImplEmployee {
 
     }
 
-    public Employee getFirstEmployee(){
+    public LinkListDS<Employee>.Node<Employee> getFirstEmployee(){
        return employeeLinkListDS.getHead();
     }
 
@@ -41,6 +41,13 @@ public class LinkListImplEmployee {
 
     public Employee deleteSpecificEmployee(Employee employee) {
         return employeeLinkListDS.deleteSpecificNode(employee);
+    }
+
+    public void removeDuplicateElements() {
+        removeDuplicates(employeeLinkListDS.getHead()) ;
+    }
+
+    private void removeDuplicates(LinkListDS<Employee>.Node<Employee> head) {
     }
 
     public List<Employee> populateEmployees() {
