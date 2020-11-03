@@ -48,6 +48,12 @@ public class LinkListImplEmployee {
     }
 
     private void removeDuplicates(LinkListDS<Employee>.Node<Employee> head) {
+        LinkListDS<Employee>.Node<Employee> current = head;
+        while (current != null){
+            LinkListDS<Employee>.Node<Employee> runner = current;
+            while (runner.next != null) {
+            }
+        }
     }
 
     public List<Employee> populateEmployees() {
