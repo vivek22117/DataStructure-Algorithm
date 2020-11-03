@@ -7,8 +7,8 @@ import java.util.stream.IntStream;
 
 public class FindIndexOfTargetSum {
 
-    private static int[] inputData = {3,6,8,7,15,9,11,0};
-    private static int target  = 12;
+    private static int[] inputData = {1, 6, 8, 7, 15, 9, 11, 0};
+    private static int target = 12;
 
     public static void main(String[] args) {
         int N = inputData.length;
@@ -19,6 +19,23 @@ public class FindIndexOfTargetSum {
                 return value[0];
             }
         }));
+
+        int[] result = new int[2];
+        int i = 0;
+        int j = N - 1;
+        while (i < j) {
+            if (copyOf2DArray[i][0] + copyOf2DArray[j][0] == target) {
+                result[0] = copyOf2DArray[i][1];
+                result[1] = copyOf2DArray[j][1];
+            }
+
+            if (copyOf2DArray[i][0] + copyOf2DArray[j][0] > target) {
+                j--;
+            } else {
+                i++;
+            }
+        }
+        System.out.println("TargetSum Index: " + result[0] + " 2nd Index: " + result[1]);
     }
 
     private static int[][] createCopyOf2DArray(int[] inputData) {

@@ -34,7 +34,7 @@ public class LinkListOperations {
     public static void main(String[] args) {
         LinkListOperations ls = new LinkListOperations();
         ls.populateEmployees();
-        Machine linkListHead = ls.getLinkListHead();
+        ls.getLinkListHead();
 
         boolean emptyList = ls.isEmptyList();
         System.out.println(emptyList);
@@ -45,7 +45,7 @@ public class LinkListOperations {
         return employeeList.isEmpty();
     }
 
-    private Machine getLinkListHead() {
+    private LinkListDS<Machine>.Node<Machine> getLinkListHead() {
         return employeeList.getHead();
     }
 }
