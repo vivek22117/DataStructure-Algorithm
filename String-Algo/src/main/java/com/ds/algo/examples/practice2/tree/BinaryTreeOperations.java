@@ -1,7 +1,10 @@
 package com.ds.algo.examples.practice2.tree;
 
 
+import java.util.stream.Stream;
+
 public class BinaryTreeOperations {
+    private static final CircularQueue<TreeNode> inputData = new CircularQueue<>(TreeNode.class);
 
     public void breadthFirstTraversal(TreeNode root) throws CircularQueue.QueueOverFlowException, CircularQueue.QueueUnderFlowException {
         if(root == null) {
@@ -24,14 +27,49 @@ public class BinaryTreeOperations {
         }
     }
 
-    public void preOrderDepthFirstTraversal(TreeNode root) {
+    public void preOrderDepthFirstTraversal(TreeNode root) throws CircularQueue.QueueOverFlowException {
         if(root == null) {
-
+            return;
         }
+
+        processNode(root);
+        preOrderDepthFirstTraversal(root.getLeftNode());
+        preOrderDepthFirstTraversal(root.getRightNode());
     }
 
-    private void processNode(TreeNode node) {
-        System.out.println("node = [" + node.getData() + "]");
+    public void inOrderDepthFirstTraversal(TreeNode root) throws CircularQueue.QueueOverFlowException {
+        if(root == null) {
+            return;
+        }
 
+        inOrderDepthFirstTraversal(root.getLeftNode());
+        processNode(root);
+        inOrderDepthFirstTraversal(root.getRightNode());
+    }
+
+    public void postOrderDepthFirstTraversal(TreeNode root) throws CircularQueue.QueueOverFlowException {
+        if(root == null) {
+            return;
+        }
+
+        postOrderDepthFirstTraversal(root.getLeftNode());
+        postOrderDepthFirstTraversal(root.getRightNode());
+        processNode(root);
+    }
+
+    private void processNode(TreeNode node) throws CircularQueue.QueueOverFlowException {
+        System.out.println("node = [" + node.getData() + "]");
+        inputData.enqueue(node);
+    }
+
+    public void printQueue(CircularQueue inputData) {
+        Stream.iterate(0, e -> e + 1).limit(inputData.totalElements())
+                .forEach(data -> {
+                    try {
+                        System.out.println("Node-data " + inputData.dequeue());
+                    } catch (CircularQueue.QueueUnderFlowException e) {
+                        System.out.println("e = " + e.getMessage());
+                    }
+                });
     }
 }
