@@ -1,4 +1,4 @@
-package com.ds.algo.examples.linklist;
+package com.ds.algo.examples.practice1.linklist;
 
 public class LinkListDS<T> {
 

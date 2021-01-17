@@ -1,4 +1,4 @@
-package com.ds.algo.examples;
+package com.ds.algo.examples.practice1.other;
 
 public class FindOneEditPalindrome {
 

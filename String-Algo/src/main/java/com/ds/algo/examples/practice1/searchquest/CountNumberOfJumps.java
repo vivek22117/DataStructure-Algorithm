@@ -1,4 +1,4 @@
-package com.ds.algo.examples.searchquest;
+package com.ds.algo.examples.practice1.searchquest;
 
 public class CountNumberOfJumps {
     private static final int[] inputData = {2, 2, -1, 3, 2, 3, 1, 4};

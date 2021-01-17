@@ -1,4 +1,4 @@
-package com.ds.algo.examples.interview;
+package com.ds.algo.examples.practice1.interview;
 
 public class InterfaceImpl implements Car, Actor {
 
