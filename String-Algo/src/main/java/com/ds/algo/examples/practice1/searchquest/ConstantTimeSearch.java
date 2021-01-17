@@ -1,4 +1,4 @@
-package com.ds.algo.examples.searchquest;
+package com.ds.algo.examples.practice1.searchquest;
 
 import java.util.Stack;
 

@@ -1,4 +1,4 @@
-package com.ds.algo.examples.tree;
+package com.ds.algo.examples.practice1.tree;
 
 public class BSTImpl {
 
