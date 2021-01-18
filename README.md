@@ -1,2 +1,2 @@
 # DataStructure-Algorithm
-Interview DataStructure &amp; Algorithim
+Interview Questions DataStructure &amp; Algorithim
