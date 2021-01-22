@@ -62,6 +62,5 @@ public class RunLengthEncoding {
             startIndex = tempIndex;
         }
         return sb.toString();
-
     }
 }
