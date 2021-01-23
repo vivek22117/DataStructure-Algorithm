@@ -19,7 +19,8 @@ public class NumberOfIslands {
         NumberOfIslands nums = new NumberOfIslands();
         printMatrix(inputMatrix);
 
-        checkNumberOfIslands(inputMatrix);
+        int islands = checkNumberOfIslands(inputMatrix);
+        System.out.println("Total islands: " + islands);
     }
 
     private static int checkNumberOfIslands(int[][] inputMatrix) {
@@ -27,12 +28,32 @@ public class NumberOfIslands {
             return 0;
         }
 
+        int rows = inputMatrix.length;
+        int cols = inputMatrix[0].length;
+        int numberOfIsland = 0;
         for(int i = 0; i < inputMatrix.length; i++) {
             for(int j =0; j < inputMatrix[i].length; j++) {
-
+                if(inputMatrix[i][j] == 1) {
+                    prepare_island(inputMatrix, i, j, rows, cols);
+                    numberOfIsland += 1;
+                }
             }
         }
-        return 0;
+        return numberOfIsland;
+    }
+
+    private static void prepare_island(int[][] inputMatrix, int i, int j, int rows, int cols) {
+
+        if(i < 0 || i >= rows || j < 0 || j >= cols || inputMatrix[i][j] != 1) {
+            return;
+        }
+
+        inputMatrix[i][j] = 2;
+
+        prepare_island(inputMatrix, i, j +1, rows, cols);
+        prepare_island(inputMatrix, i, j -1, rows, cols);
+        prepare_island(inputMatrix, i + 1, j, rows, cols);
+        prepare_island(inputMatrix, i -1, j, rows, cols);
     }
 
     private static void printMatrix(int[][] inputMatrix) {
