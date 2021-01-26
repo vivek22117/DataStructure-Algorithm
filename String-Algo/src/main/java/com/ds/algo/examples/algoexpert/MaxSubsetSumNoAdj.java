@@ -17,7 +17,6 @@ public class MaxSubsetSumNoAdj {
             secondNum = firstNum;
             firstNum = currentNum;
         }
-
         return firstNum;
     }
 
