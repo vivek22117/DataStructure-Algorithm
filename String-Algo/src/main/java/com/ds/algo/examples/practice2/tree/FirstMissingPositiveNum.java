@@ -31,5 +31,7 @@ public class FirstMissingPositiveNum {
             }
         }
 
+        return 0;
+
     }
 }
