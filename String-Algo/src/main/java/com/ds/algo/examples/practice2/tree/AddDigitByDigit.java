@@ -18,8 +18,8 @@ public class AddDigitByDigit {
 
         while (lastIndexNum1 >= 0 && lastIndexNum2 >= 0) {
             total = num1[lastIndexNum1] + num2[lastIndexNum2] + carry;
-            carry = total % 10;
-            digit = total / 10;
+            carry = total / 10;
+            digit = total % 10;
 
             numberSum.add(0, digit);
             lastIndexNum1--;
@@ -28,8 +28,8 @@ public class AddDigitByDigit {
 
         while (lastIndexNum1 >= 0) {
             total = num1[lastIndexNum1] + carry;
-            carry = total % 10;
-            digit = total / 10;
+            carry = total / 10;
+            digit = total % 10;
 
             numberSum.add(0, digit);
             lastIndexNum1--;
@@ -37,8 +37,8 @@ public class AddDigitByDigit {
 
         while (lastIndexNum2 >= 0) {
             total = num2[lastIndexNum2] + carry;
-            carry = total % 10;
-            digit = total / 10;
+            carry = total / 10;
+            digit = total % 10;
 
             numberSum.add(0, digit);
             lastIndexNum2--;
