@@ -18,9 +18,19 @@ public class CheckPalindromeInPermuSecond {
 
         for(char ch : inputData.toCharArray()) {
             int x = getCharacterNum(ch);
+
+            if(x != -1) {
+                charArray[x]++;
+
+                if(charArray[x] % 2 == 1) {
+                    countOdd++;
+                } else {
+                    countOdd--;
+                }
+            }
         }
 
-        return false;
+        return countOdd <= 1;
     }
 
     private static int getCharacterNum(char ch) {
