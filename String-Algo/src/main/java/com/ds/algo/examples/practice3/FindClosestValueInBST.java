@@ -15,10 +15,24 @@ public class FindClosestValueInBST {
     public int closestValue(TreeNode node, int k) {
         int currentClose = Integer.MAX_VALUE;
 
-        findClosest(node, currentClose, k);
+        return findClosest(node, currentClose, k);
     }
 
-    private void findClosest(TreeNode node, int currentClose, int k) {
+    private int findClosest(TreeNode node, int currentClose, int k) {
+        if(node == null) {
+            return currentClose;
+        }
 
+        if(Math.abs(k - currentClose) > Math.abs(k - node.value)) {
+            currentClose = node.value;
+        }
+
+        if(k > node.value) {
+            return findClosest(node.right, currentClose, k);
+        } else if(k < node.value) {
+            return findClosest(node.left, currentClose, k);
+        } else {
+            return currentClose;
+        }
     }
 }
