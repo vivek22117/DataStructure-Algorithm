@@ -37,6 +37,10 @@ public class Solution {
 //
 //    }
 
+//    SELECT sums.STUDENT_ID, sums.SUM_OF_MARKS FROM (SELECT STUDENT_ID, SUM(MARKS) AS SUM_OF_MARKS
+//    FROM marks GROUP BY STUDENT_ID ORDER BY STUDENT_ID DESC) sums
+//    WHERE sums.SUM_OF_MARKS >= 500
+
     public int solution(int N) {
         int replaceNum = 5;
         if(N == 0) {
