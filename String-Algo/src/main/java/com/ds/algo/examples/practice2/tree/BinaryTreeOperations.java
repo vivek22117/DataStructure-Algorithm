@@ -4,6 +4,7 @@ package com.ds.algo.examples.practice2.tree;
 import java.util.stream.Stream;
 
 public class BinaryTreeOperations {
+
     private static final CircularQueue<TreeNode> inputData = new CircularQueue<>(TreeNode.class);
 
     public void breadthFirstTraversal(TreeNode root) throws CircularQueue.QueueOverFlowException, CircularQueue.QueueUnderFlowException {
