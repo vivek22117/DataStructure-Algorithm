@@ -69,6 +69,7 @@ public class VerticalSumOfBST {
 
     public static void main(String[] args) {
         TreeNode root = new TreeNode(1);
+
         root.setLeft(new TreeNode(2));
         root.setRight(new TreeNode(3));
         root.getLeft().setLeft(new TreeNode(4));
