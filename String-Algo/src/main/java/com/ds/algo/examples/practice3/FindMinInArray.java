@@ -2,7 +2,7 @@ package com.ds.algo.examples.practice3;
 
 public class FindMinInArray {
 
-    private static int[] input = {2,3, 6 ,5 ,4};
+    private static int[] input = {2,3, 6 ,5 ,4, 8, 5, 0};
 
     public static void main(String[] args) {
         int min = findMin(input);
@@ -10,6 +10,9 @@ public class FindMinInArray {
 
         int secondMin = findSecondMin(input);
         System.out.println(secondMin);
+
+        int kthMin = findKthMin(input, 3);
+        System.out.println(kthMin);
     }
 
 //    O(n)
@@ -28,6 +31,7 @@ public class FindMinInArray {
         return min;
     }
 
+//    O(n)
     private static int findSecondMin(int[] input) {
         if(input.length < 2) {
             return input[0];
@@ -45,6 +49,35 @@ public class FindMinInArray {
         }
 
         return min2;
+    }
+
+    private static int findKthMin(int[] input, int k) {
+        if(input.length < 2) {
+            return input[0];
+        }
+
+        int min = Integer.MAX_VALUE;
+        for(int i : input) {
+            if(i < min) {
+                min = i;
+            }
+        }
+
+        int secondMin = Integer.MAX_VALUE;
+        for(int i : input) {
+            if(i < secondMin && i > min || secondMin == min) {
+                secondMin = i;
+            }
+        }
+
+        int thirdMin = Integer.MAX_VALUE;
+        for(int i : input) {
+            if(i < thirdMin && i > secondMin || thirdMin == secondMin) {
+                thirdMin = i;
+            }
+        }
+
+        return thirdMin;
     }
 
 }
