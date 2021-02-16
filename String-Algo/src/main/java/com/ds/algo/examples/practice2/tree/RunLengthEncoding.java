@@ -4,7 +4,7 @@ import java.util.stream.IntStream;
 
 public class RunLengthEncoding {
 
-    private static String inputData = "aaaaacccdddduuuueeeeseeen";
+    private static String inputData = "aaaaaaaaaaaaaaaaaaacccdddduuuueeeeseeen";
 
     public static void main(String[] args) {
         String encodedString = encodeInputData(inputData);

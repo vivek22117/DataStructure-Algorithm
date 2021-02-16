@@ -33,4 +33,10 @@ public class RunLengthEncoding {
         return sb.toString();
     }
 
+    private static String decodeRunLength(String inputData) {
+
+        return null;
+
+    }
+
 }
