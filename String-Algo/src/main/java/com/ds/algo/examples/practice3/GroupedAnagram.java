@@ -13,7 +13,7 @@ public class GroupedAnagram {
         groupAnagrams(data);
     }
 
-    private static void groupAnagrams(String[] data) {
+    private static List<List<String>> groupAnagrams(String[] data) {
         List<List<String>> groupedAnagram = new ArrayList<>();
         HashMap<String, List<String>> map = new HashMap<>();
 
@@ -28,5 +28,8 @@ public class GroupedAnagram {
 
             map.get(sorted).add(val);
         }
+
+        groupedAnagram.addAll(map.values());
+        return groupedAnagram;
     }
 }
