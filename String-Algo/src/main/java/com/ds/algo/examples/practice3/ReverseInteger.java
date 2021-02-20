@@ -10,6 +10,12 @@ public class ReverseInteger {
     }
 
     private static int reverseInt(int value) {
+        int counter = 0;
+        while (value > 0) {
+            counter++;
+            value /= 10;
+        }
+
         long result = 0;
         while (value != 0) {
             int remainder = value % 10;
