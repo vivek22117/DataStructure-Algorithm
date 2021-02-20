@@ -14,6 +14,7 @@ public class UniqueSubString {
         Set<Character> set = new HashSet<>();
         while (i < data.length()) {
             char ch = data.charAt(i);
+
             while (set.contains(ch)){
                 set.remove(data.charAt(j));
                 j++;
