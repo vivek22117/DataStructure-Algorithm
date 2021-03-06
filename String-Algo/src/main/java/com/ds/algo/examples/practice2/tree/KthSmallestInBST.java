@@ -33,7 +33,7 @@ public class KthSmallestInBST {
 
 
     public static void main(String[] args) {
-        String[] treeData = {"5", "3", "6", "2", "4", null, null, "1"};
+        Integer[] treeData = {5, 3, 6, 2, 4, null, null, 1};
 
     }
 
