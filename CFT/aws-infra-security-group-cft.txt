@@ -1,0 +1,18 @@
+#validate the template
+aws cloudformation validate-template --template-body file://CFT/aws-fixed-resource.yaml
+
+#Execute this command if you want to UPDATE STACK
+aws cloudformation update-stack --stack-name vpc-subnet-network-by-vivek \
+--template-body file://aws-cloudformation/security/aws-infra-security-group.json --profile vw --region us-east-1
+
+#CREATE USING TEMPLATE FILE
+aws --profile vw cloudformation create-stack --stack-name vw-vpc --template-body file://CFT/aws-fixed-resource.yaml --parameters ParameterKey=CIDRRange,ParameterValue=10.0.0.0/16 ParameterKey=AWSRegion,ParameterValue=us-east-1 ParameterKey=Environment,ParameterValue=dev
+
+#wait for stack to complete
+aws --profile vw cloudformation wait stack-create-complete --stack-name vw-vpc
+
+echo 'Waiting for template to complete......'
+
+
+
+
