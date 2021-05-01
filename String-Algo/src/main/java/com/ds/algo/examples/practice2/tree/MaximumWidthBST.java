@@ -41,7 +41,8 @@ public class MaximumWidthBST {
                 @Override
                 public void accept(TreeNode treeNode) {
                     try {
-                        queue.enqueue(treeNode);
+                        queue.enqueue(treeNode.left);
+                        queue.enqueue(treeNode.right);
                     } catch (CircularQueue.QueueOverFlowException e) {
                         e.printStackTrace();
                     }
