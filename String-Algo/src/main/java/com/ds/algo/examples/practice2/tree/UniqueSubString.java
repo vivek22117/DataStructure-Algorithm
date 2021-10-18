@@ -22,7 +22,7 @@ public class UniqueSubString {
             }
 
             set.add(ch);
-            max = Math.max(max, i - j+1);
+            max = Math.max(max, (i - j) + 1);
             i++;
         }
         return max;
