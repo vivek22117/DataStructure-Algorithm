@@ -5,6 +5,7 @@ import java.util.Set;
 
 public class UniqueSubString {
 
+//  "PWWTRRSKENN"
     public static int lengthOfUniqueSubString(String data) {
         if(data == null || data.length() == 0) {
             return 0;
