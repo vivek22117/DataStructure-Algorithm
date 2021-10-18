@@ -50,9 +50,7 @@ public class VerticalSumOfBST {
         HashMap<Integer, Integer> map = new HashMap<>();
         verticalSumUtil(root, 0, map);
 
-        if(map != null) {
-            System.out.println(map.entrySet());
-        }
+        System.out.println(map.entrySet());
         return 0;
     }
 
