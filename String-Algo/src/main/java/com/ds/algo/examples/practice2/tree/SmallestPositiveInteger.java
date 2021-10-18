@@ -2,15 +2,15 @@ package com.ds.algo.examples.practice2.tree;
 
 import java.util.Arrays;
 
-public class SmallestPostiveInteger {
+public class SmallestPositiveInteger {
 
 //    private static int[] data = {1,3,6,4,1,2};
-//    private static int[] data = {1,2,3};
-    private static int[] data = {-1,-2,-3};
+    private static int[] data = {1,2,3};
+//    private static int[] data = {-1,-2,-3};
     public static void main(String[] args) {
-        SmallestPostiveInteger smallestPostiveInteger = new SmallestPostiveInteger();
+        SmallestPositiveInteger smallestPositiveInteger = new SmallestPositiveInteger();
 
-        int solution = smallestPostiveInteger.solution(data);
+        int solution = smallestPositiveInteger.solution(data);
         System.out.println(solution);
     }
 
