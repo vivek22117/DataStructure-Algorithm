@@ -11,8 +11,8 @@ Input:
 1 1 0 0 0
 0 0 0 0 1
 
-Output: [9]
-Explanation:  There is only one island with size 9
+Output: [9, 1]
+Explanation:  There are two island with size 9, 1
  */
 
 public class NumberOfIslands {
