@@ -55,7 +55,6 @@ public class PriorityDS<T> {
     }
 
     private int compareElements(T element1, T element2) {
-
         return -1;
     }
 
