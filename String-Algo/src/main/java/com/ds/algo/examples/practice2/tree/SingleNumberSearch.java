@@ -16,6 +16,7 @@ public class SingleNumberSearch {
         if(inputData.length == 0) {
             return 0;
         }
+
         Map<Integer, Integer> countMap = new HashMap<>();
         for(int i : inputData){
             countMap.put(i, countMap.getOrDefault(i, 0) + 1);
