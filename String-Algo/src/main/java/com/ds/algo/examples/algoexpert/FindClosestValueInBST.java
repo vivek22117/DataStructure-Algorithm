@@ -2,7 +2,7 @@ package com.ds.algo.examples.algoexpert;
 
 public class FindClosestValueInBST {
 
-    public class TreeNode {
+    public static class TreeNode {
         int value;
         TreeNode left;
         TreeNode right;
