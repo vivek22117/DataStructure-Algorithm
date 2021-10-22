@@ -27,6 +27,31 @@ public class IsStringLongPressed {
             return false;
         }
 
+        int i = 0;
+        int j = 0;
+        while(i < n && j < m) {
+            char ch1 = input.charAt(i);
+            char ch2 = input.charAt(j);
 
+            if(ch1 != ch2) {
+                return false;
+            }
+
+            int a = i + 1;
+            int b = j + 1;
+
+            while (a < n && input.charAt(a) == ch1) {
+                ++a;
+            }
+
+            while (b < m && longPressedInput.charAt(b) == ch2) {
+               ++b;
+            }
+
+            i = a;
+            j = b;
+        }
+
+        return true;
     }
 }
