@@ -1,7 +1,17 @@
 package com.ds.algo.examples.algoexpert;
 
+
+/*
+Input: nums = [47, 23, 8, 41, 11, 33, 55]
+
+Non Adjacent Sum1 = 47 + 8 + 11 + 55  =>
+Non Adjacent Sum2 = 23 + 41 + 33 =>
+Non Adjacent Sum3 = 47 + 41 + 55 =>
+Output: 143
+
+ */
 public class MaxSubsetSumNoAdj {
-    private static int[] data = {23, 47, 8, 41, 11, 33, 55};
+    private static int[] data = {47, 23, 8, 41, 11, 33, 55};
 
     public static int maxSubsetSumNoAdjacent(int[] data) {
         if(data.length == 0){
