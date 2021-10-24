@@ -12,13 +12,16 @@ Input:
 0 1 1 0 1 1
 
 Output: 2
-Explanation:  There are 3 island with size 6, 2, 1
+Why:
+    [{1,1}, {1,2}, {2,1}, {2, 2}] => Create 1 Closed Island
+    [{1,4}, {2,4}] => Create 1 Closed Island
+
  */
 public class NumOfClosedIslands {
 
     private static int[][] grid = {
-            {1, 1, 1, 1, 0, 1},
-            {1, 0, 0, 1, 1, 1},
+            {1, 1, 1, 1, 1, 1},
+            {1, 0, 0, 1, 0, 0},
             {1, 0, 0, 1, 0, 1},
             {0, 1, 1, 0, 1, 1}
     };
