@@ -32,7 +32,7 @@ public class LongestNonRepeatingSubArray {
 
         int result = 0;
         for(int i = 0; i < nums.length; i++) {
-            for(int j = 1; j < nums.length; j++) {
+            for(int j = i; j < nums.length; j++) {
                 int searchValue = nums[j];
                 if(Arrays.stream(Arrays.copyOfRange(nums, i, j)).anyMatch(value -> value == searchValue)){
                     break;
