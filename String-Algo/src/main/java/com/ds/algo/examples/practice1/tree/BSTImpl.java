@@ -30,7 +30,7 @@ public class BSTImpl {
             return null;
         }
 
-        if(head.getElement().id == newNode.getElement().id) {
+        if(head.getElement().id.equals(newNode.getElement().id)) {
             return head;
         }
 
