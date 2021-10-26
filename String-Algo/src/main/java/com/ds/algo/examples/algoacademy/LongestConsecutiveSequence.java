@@ -29,6 +29,7 @@ public class LongestConsecutiveSequence {
                 j++;
             }
         }
+        return 0;
 
     }
 }
