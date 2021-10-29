@@ -20,5 +20,7 @@ public class RobotGrid {
 
     public boolean computePath(boolean[][] grid) {
 
+        return false;
+
     }
 }
