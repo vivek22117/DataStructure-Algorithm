@@ -1,6 +1,7 @@
 package com.ds.algo.examples.algoacademy;
 
 
+
 /*
 Input:
 [
@@ -27,7 +28,7 @@ public class FloodFillAlgo {
 
     public int[][] fillGrid(int[][] grid, int color) {
         if(grid.length == 0) {
-            return new int[][];
+            return new int[][]{};
         }
 
         int rows = grid.length;
@@ -36,9 +37,17 @@ public class FloodFillAlgo {
         for(int i = 0; i < rows; i++) {
             for(int j = 0; j < cols; j++) {
                 if(grid[i][j] == color) {
-
+                    fill(grid, i, j, color);
                 }
             }
         }
+    }
+
+    private void fill(int[][] grid, int row, int col, int color) {
+        if(row < 0 || row > grid.length || col < 0 || col > grid[0].length) {
+            return;
+        }
+
+        if(grid[row][col] != )
     }
 }
