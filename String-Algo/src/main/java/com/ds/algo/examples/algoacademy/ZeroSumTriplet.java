@@ -25,7 +25,7 @@ public class ZeroSumTriplet {
             int right = nums.length - 1;
 
             while (left < right) {
-                int tempSum = nums[i];
+                int tempSum = -nums[i];
                 if(nums[left] + nums[right] > tempSum) {
                     right--;
                 } else if(nums[left] + nums[right] < tempSum) {
