@@ -3,10 +3,10 @@ package com.ds.algo.examples.algoacademy;
 
 /*
 Input: nums = [1, 2, 1, 3, 5, 6, 4]
-Output: 1 or 5
+Output: Index 1 or 5
 
 Input: nums = [1, 2, 3, 1]
-Output: 2
+Output: Index 2
  */
 public class FindPeakElement {
 
