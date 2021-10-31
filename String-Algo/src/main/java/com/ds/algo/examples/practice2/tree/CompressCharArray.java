@@ -1,5 +1,7 @@
 package com.ds.algo.examples.practice2.tree;
 
+import java.util.Arrays;
+
 public class CompressCharArray {
     private static char[] chars = {'a', 'c', 'd', 'd', 'd', 'd', 'i'};
 
@@ -20,6 +22,7 @@ public class CompressCharArray {
             }
             i = j;
         }
+        System.out.println(Arrays.toString(chars));
         return index;
     }
 
