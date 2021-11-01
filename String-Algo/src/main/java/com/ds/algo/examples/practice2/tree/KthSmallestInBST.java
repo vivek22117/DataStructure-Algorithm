@@ -36,7 +36,6 @@ public class KthSmallestInBST {
         Integer[] treeData = {5, 3, 6, 2, 4, null, null, 1};
 
         KthSmallestInBST smallest = new KthSmallestInBST();
-        smallest.kthSmallest(treeData, 2);
 
     }
 
