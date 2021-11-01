@@ -35,7 +35,7 @@ public class ReorderLogs {
                         return log1Id.compareTo(log2Id);
                     }
 
-                    return
+                    return isLog1BeginWithDigit ? (isLog2BeginWithDigit ? 0 : 1) : -1;
                 }
             }
         });
