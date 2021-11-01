@@ -2,6 +2,7 @@ package com.ds.algo.examples.practice2.tree;
 
 import java.util.Arrays;
 import java.util.Comparator;
+import java.util.function.Function;
 
 public class ReorderLogs {
 
@@ -13,6 +14,15 @@ public class ReorderLogs {
         if(logs.length == 1) {
             return logs;
         }
+
+        Arrays.sort(logs, new Comparator<String>(){
+            @Override
+            public int compare(String str1, String str2) {
+                int index1 = str1.indexOf(" ");
+                String log1Id = str1.substring(0, index1);
+                String log1Msg = str1.substring(index1 + 1);
+            }
+        });
 
         Arrays.sort(logs, new Comparator<String>() {
             @Override
