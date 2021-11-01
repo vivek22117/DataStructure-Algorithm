@@ -21,6 +21,22 @@ public class ReorderLogs {
                 int index1 = str1.indexOf(" ");
                 String log1Id = str1.substring(0, index1);
                 String log1Msg = str1.substring(index1 + 1);
+
+                int index2 = str2.indexOf(" ");
+                String log2Id = str2.substring(0, index2);
+                String log2Msg = str2.substring(index2 + 1);
+
+                boolean isLog1BeginWithDigit = Character.isDigit(log1Msg.charAt(0));
+                boolean isLog2BeginWithDigit = Character.isDigit(log2Msg.charAt(0));
+
+                if(!isLog1BeginWithDigit && !isLog2BeginWithDigit) {
+                    int value = log1Msg.compareTo(log2Msg);
+                    if(value == 0) {
+                        return log1Id.compareTo(log2Id);
+                    }
+
+                    return
+                }
             }
         });
 
