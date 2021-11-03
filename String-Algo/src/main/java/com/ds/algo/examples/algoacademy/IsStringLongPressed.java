@@ -12,7 +12,7 @@ Output: True
 public class IsStringLongPressed {
 
     private static String input = "vivekk";
-    private static String longPressedInput = "viiivvekkkk";
+    private static String longPressedInput = "viiivve";
 
     public static void main(String[] args) {
         IsStringLongPressed longPressed = new IsStringLongPressed();
