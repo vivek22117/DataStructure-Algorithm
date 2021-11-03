@@ -18,7 +18,7 @@ public class MaxSumSubArray {
 
 
     public int maxSum(int[] nums) {
-        int sum = nums[0];
+        int sum = 0;
         for(int i = 0; i < nums.length; i++) {
             int tempSum = 0;
             for(int j = i; j < nums.length; j++) {
