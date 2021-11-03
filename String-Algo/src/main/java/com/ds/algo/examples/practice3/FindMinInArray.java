@@ -15,7 +15,7 @@ public class FindMinInArray {
         System.out.println(kthMin);
     }
 
-//    O(n)
+//    O(n) 2,3, 6 ,5 ,4, 8, 5, 0
     private static int findMin(int[] input) {
         if(input.length < 2) {
             return input[0];
@@ -31,7 +31,7 @@ public class FindMinInArray {
         return min;
     }
 
-//    O(n)
+//    O(n) 2,3, 6 ,5 ,4, 8, 5, 0
     private static int findSecondMin(int[] input) {
         if(input.length < 2) {
             return input[0];
