@@ -2,7 +2,7 @@ package com.ds.algo.examples.practice2.tree;
 
 public class KthSmallestInBST {
 
-    public class TreeNode {
+    public static class TreeNode {
         int val;
         TreeNode left;
         TreeNode right;
@@ -36,6 +36,9 @@ public class KthSmallestInBST {
         Integer[] treeData = {5, 3, 6, 2, 4, null, null, 1};
 
         KthSmallestInBST smallest = new KthSmallestInBST();
+        for(Integer val : treeData) {
+            TreeNode node = new TreeNode(val);
+        }
 
     }
 
