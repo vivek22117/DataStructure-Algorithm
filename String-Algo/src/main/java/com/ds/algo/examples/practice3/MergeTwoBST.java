@@ -2,7 +2,7 @@ package com.ds.algo.examples.practice3;
 
 public class MergeTwoBST {
 
-    class TreeNode {
+    static class TreeNode {
         int val;
         TreeNode left;
         TreeNode right;
