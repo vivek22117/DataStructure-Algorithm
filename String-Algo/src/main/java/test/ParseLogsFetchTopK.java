@@ -35,6 +35,7 @@ public class ParseLogsFetchTopK {
             sortedList.add(val);
         }
 
+//        AscendingOrder
         Collections.sort(sortedList, Comparator.comparingLong(new ToLongFunction<Map.Entry<String, Long>>() {
             @Override
             public long applyAsLong(Map.Entry<String, Long> entry) {
@@ -42,6 +43,21 @@ public class ParseLogsFetchTopK {
             }
         }));
 
+        System.out.println(sortedList);
+
+//        ReverserOrder
+        Collections.sort(sortedList, Comparator.comparingLong(new ToLongFunction<Map.Entry<String, Long>>() {
+            @Override
+            public long applyAsLong(Map.Entry<String, Long> entry) {
+                return entry.getValue();
+            }
+        }).reversed());
+
         System.out.println(map);
+        System.out.println(sortedList);
+
+        sortedList.stream().limit(2).forEach(value -> {
+            System.out.println(value.getKey() + " " + value.getValue());
+        });
     }
 }
