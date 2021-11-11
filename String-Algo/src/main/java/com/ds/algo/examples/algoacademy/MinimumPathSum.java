@@ -19,14 +19,17 @@ public class MinimumPathSum {
     public static void main(String[] args) {
         MinimumPathSum sum = new MinimumPathSum();
 
-        int result = sum.getMinSum(grid);
-        System.out.println(result);
+//        int result = sum.getMinSum(grid);
+//        System.out.println(result);
+//
+//        int result2 = sum.getMinSumMemoization(grid);
+//        System.out.println(result2);
+//
+//        int result3 = sum.getMinPathSum(grid);
+//        System.out.println(result3);
 
-        int result2 = sum.getMinSumMemoization(grid);
-        System.out.println(result2);
-
-        int result3 = sum.getMinPathSum(grid);
-        System.out.println(result3);
+        int result4 = sum.findMinPathSum(grid);
+        System.out.println(result4);
     }
 
 //  Big O(n + m)!  &
@@ -93,5 +96,29 @@ public class MinimumPathSum {
         }
         return grid[rows - 1][cols - 1];
 
+    }
+
+    public int findMinPathSum(int[][] grid) {
+        if(grid.length == 0) {
+            return -1;
+        }
+        int rows = grid.length;
+        int cols = grid[0].length;
+
+        for(int i = 1; i < rows; i++) {
+            grid[i][0] += grid[i-1][0];
+        }
+
+        for(int j = 1; j < cols; j++) {
+            grid[0][j] += grid[0][j-1];
+        }
+
+        for(int r = 1; r < rows; r++) {
+            for(int c = 1; c < cols; c++) {
+                grid[r][c] += Math.min(grid[r][c - 1], grid[r - 1][c]);
+            }
+        }
+
+        return grid[rows - 1][cols - 1];
     }
 }
