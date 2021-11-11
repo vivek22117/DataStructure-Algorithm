@@ -24,6 +24,7 @@ public class FindKthSmallest {
 
     }
 
+//    Big O(n log k)
     public int[] findKthSmallestNums(int[] nums, int k) {
         if(nums.length == 0) {
             return new int[]{};
