@@ -20,7 +20,9 @@ public class TotalSampleVenkat {
         int total = 0;
 
         for(int e : numbers) {
-            if(selector.test(e)) total += e;
+            if(selector.test(e)){
+                total += e;
+            }
         }
         return total;
     }
