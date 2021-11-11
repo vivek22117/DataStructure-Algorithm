@@ -42,6 +42,7 @@ public class WordLadder {
         System.out.println(result);
     }
 
+//    Big O(n^2 * l)
     public int ladderLength(String[] words, String beginWord, String endWord) {
         Deque<String> queue = new ArrayDeque<>();
         Map<String, Integer> minDistMap = new HashMap<>();
