@@ -37,7 +37,9 @@ public class WordLadder {
     private static String[] wordList = {"hot","dot","dog","lot","log","cog"};
 
     public static void main(String[] args) {
-
+        WordLadder ladder = new WordLadder();
+        int result = ladder.ladderLength(wordList, "hit", "cog");
+        System.out.println(result);
     }
 
     public int ladderLength(String[] words, String beginWord, String endWord) {
