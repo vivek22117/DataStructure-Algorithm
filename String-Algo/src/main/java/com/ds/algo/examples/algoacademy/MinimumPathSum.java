@@ -24,6 +24,9 @@ public class MinimumPathSum {
 
         int result2 = sum.getMinSumMemoization(grid);
         System.out.println(result2);
+
+        int result3 = sum.getMinPathSum(grid);
+        System.out.println(result3);
     }
 
 //  Big O(n + m)!  &
@@ -73,19 +76,22 @@ public class MinimumPathSum {
             return -1;
         }
 
+        int rows = grid.length;
+        int cols = grid[0].length;
+
         for(int i = 0; i < grid.length; i++) {
             for(int j = 0; j < grid[i].length; j++) {
                 int top = i - 1 < 0 ? Integer.MAX_VALUE : grid[i - 1][j];
                 int left = j - 1 < 0 ? Integer.MAX_VALUE : grid[i][j - 1];
 
                 if(top == Integer.MAX_VALUE && left == Integer.MAX_VALUE) {
-                    grid[i][j] = 0;
+                    grid[i][j] += 0;
                 } else {
-                    grid[i][j] = Math.min(top, left);
+                    grid[i][j] += Math.min(top, left);
                 }
             }
         }
-        return grid[grid.length - 1][grid[0].length - 1];
+        return grid[rows - 1][cols - 1];
 
     }
 }
