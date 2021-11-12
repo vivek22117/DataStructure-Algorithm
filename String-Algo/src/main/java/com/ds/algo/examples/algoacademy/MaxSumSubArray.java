@@ -14,6 +14,9 @@ public class MaxSumSubArray {
         MaxSumSubArray max = new MaxSumSubArray();
         int result = max.maxSum(input);
         System.out.println(result);
+
+        int result1 = max.maxSumSubArray(input);
+        System.out.println(result1);
     }
 
 
@@ -28,5 +31,16 @@ public class MaxSumSubArray {
         }
 
         return sum;
+    }
+
+    public int maxSumSubArray(int[] nums) {
+        int result = nums[0];
+        int maxSum = 0;
+        for(int val : nums) {
+            maxSum = val + Math.max(maxSum, 0);
+            result = Math.max(result, maxSum);
+        }
+
+        return result;
     }
 }
