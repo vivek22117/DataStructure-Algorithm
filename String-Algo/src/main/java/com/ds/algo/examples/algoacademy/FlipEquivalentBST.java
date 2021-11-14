@@ -35,6 +35,20 @@ public class FlipEquivalentBST {
 
 
     public boolean isBSTFlipEquivalent(TreeNode<Integer> node1, TreeNode<Integer> node2) {
+        if(node1 == null && node2 == null) {
+            return false;
+        }
 
+        if(node1 == null || node2 == null || node1.value != node2.value) {
+            return false;
+        }
+
+        boolean isLeftCheckEquivalent = isBSTFlipEquivalent(node1.left, node2.left) &&
+                isBSTFlipEquivalent(node1.right, node2.right);
+
+        boolean isRightCheckEquivalent = isBSTFlipEquivalent(node1.left, node2.right) &&
+                isBSTFlipEquivalent(node1.right, node2.left);
+
+        return isLeftCheckEquivalent || isRightCheckEquivalent;
     }
 }
