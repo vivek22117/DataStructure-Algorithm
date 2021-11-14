@@ -29,7 +29,6 @@ public class FlipEquivalentBST {
             TreeNode node1 = new TreeNode(bstInput1[value]);
         });
 
-        TreeNode node1 = new TreeNode(bstInput1[i]);
 
     }
 
