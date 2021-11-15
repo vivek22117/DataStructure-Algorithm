@@ -18,8 +18,6 @@ public class ReverseLinkList {
         ListNode node6 = new ListNode(23);
 
 
-
-
         head = node;
         head.next = node2;
         node2.next = node3;
