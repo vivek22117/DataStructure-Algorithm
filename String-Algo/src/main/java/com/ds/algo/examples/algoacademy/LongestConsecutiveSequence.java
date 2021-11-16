@@ -18,6 +18,7 @@ public class LongestConsecutiveSequence {
     }
 
     public int subSequence(int[] nums) {
+        int result = 1;
         Arrays.sort(nums);
 
         int i = 0;
@@ -26,10 +27,16 @@ public class LongestConsecutiveSequence {
 
             int j = i + 1;
             while (j < nums.length && nums[j] <= curr + 1) {
+                if(nums[j] == curr + 1){
+                    curr++;
+                }
                 j++;
             }
+            result = Math.max(result, curr - nums[i] + 1);
+            i = j;
+
         }
-        return 0;
+        return result;
 
     }
 }
