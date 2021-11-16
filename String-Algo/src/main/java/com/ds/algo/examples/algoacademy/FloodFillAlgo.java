@@ -30,6 +30,8 @@ public class FloodFillAlgo {
 
     public int[][] fillGrid(int[][] grid, int oldColor, int color) {
         printMatrix(grid);
+        System.out.println();
+
         if(grid.length == 0) {
             return new int[][]{};
         }
@@ -65,10 +67,10 @@ public class FloodFillAlgo {
     }
 
     private static void printMatrix(int[][] inputMatrix) {
-        for(int i = 0; i < inputMatrix.length; i++){
+        for (int[] matrix : inputMatrix) {
             System.out.print("|");
-            for(int j = 0; j < inputMatrix[i].length; j++) {
-                System.out.print(inputMatrix[i][j] + "|");
+            for (int i : matrix) {
+                System.out.print(i + "|");
             }
             System.out.println();
         }
