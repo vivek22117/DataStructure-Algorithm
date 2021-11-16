@@ -38,7 +38,7 @@ public class FlipEquivalentBST {
             return false;
         }
 
-        if(node1 == null || node2 == null || node1.value != node2.value) {
+        if(node1 == null || node2 == null || !node1.value.equals(node2.value)) {
             return false;
         }
 
