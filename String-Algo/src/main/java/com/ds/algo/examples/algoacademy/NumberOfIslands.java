@@ -42,6 +42,7 @@ public class NumberOfIslands {
             }
         }
 
+        System.out.println("Number of Islands: " + result.size());
         return result;
     }
 
