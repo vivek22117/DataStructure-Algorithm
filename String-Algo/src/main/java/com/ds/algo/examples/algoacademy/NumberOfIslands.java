@@ -17,7 +17,12 @@ Explanation:  There are two island with size 9, 1
 
 public class NumberOfIslands {
 
-    private static int[][] input = {{1, 1, 1, 1, 0}, {1, 1, 0, 1, 0}, {1, 1, 0, 0, 0}, {0, 0, 0, 1}};
+    private static int[][] input = {
+            {1, 1, 1, 1, 0},
+            {1, 1, 0, 1, 0},
+            {1, 1, 0, 0, 0},
+            {0, 0, 0, 1, 0}
+    };
 
     public static void main(String[] args) {
         NumberOfIslands islands = new NumberOfIslands();
