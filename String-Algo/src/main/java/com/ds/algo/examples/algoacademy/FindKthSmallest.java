@@ -3,6 +3,7 @@ package com.ds.algo.examples.algoacademy;
 
 import java.util.Arrays;
 import java.util.Comparator;
+import java.util.List;
 import java.util.PriorityQueue;
 
 /*
@@ -30,14 +31,17 @@ public class FindKthSmallest {
             return new int[]{};
         }
 
-        PriorityQueue<Integer> smallestKNums = new PriorityQueue<>(new Comparator<Integer>() {
-            @Override
-            public int compare(Integer o1, Integer o2) {
-                return o2 - o1;
-            }
-        });
+        Integer[] numbers = Arrays.stream(nums).boxed().toArray(Integer[]::new);
+//        PriorityQueue<Integer> smallestKNums = new PriorityQueue<>(new Comparator<Integer>() {
+//            @Override
+//            public int compare(Integer o1, Integer o2) {
+//                return o2 - o1;
+//            }
+//        });
 
-        for(int val : nums) {
+        PriorityQueue<Integer> smallestKNums = new PriorityQueue<Integer>();
+
+        for(Integer val : numbers) {
             if(smallestKNums.size() < k) {
                 smallestKNums.add(val);
             } else if(val < smallestKNums.peek()) {
