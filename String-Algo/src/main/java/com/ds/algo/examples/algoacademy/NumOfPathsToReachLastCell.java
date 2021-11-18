@@ -2,7 +2,12 @@ package com.ds.algo.examples.algoacademy;
 
 public class NumOfPathsToReachLastCell {
 
-    private static int[][] input = {{4, 7, 1, 6}, {5, 7, 3, 9}, {3, 2, 1, 2}, {7, 1, 6, 3}};
+    private static int[][] input = {
+            {4, 7, 1, 6},
+            {5, 7, 3, 9},
+            {3, 2, 1, 2},
+            {7, 1, 6, 3}
+    };
 
     public static void main(String[] args) {
         NumOfPathsToReachLastCell paths = new NumOfPathsToReachLastCell();
