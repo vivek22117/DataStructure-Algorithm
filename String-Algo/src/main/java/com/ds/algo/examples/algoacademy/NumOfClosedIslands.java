@@ -3,7 +3,7 @@ package com.ds.algo.examples.algoacademy;
 
 /*
 1: Water
-2: Land
+0: Land
 
 Input:
 1 1 1 1 1 1
@@ -21,7 +21,7 @@ public class NumOfClosedIslands {
 
     private static int[][] grid = {
             {1, 1, 1, 1, 1, 1},
-            {1, 0, 0, 1, 0, 0},
+            {1, 0, 0, 1, 0, 1},
             {1, 0, 0, 1, 0, 1},
             {0, 1, 1, 0, 1, 1}
     };
