@@ -42,6 +42,8 @@ public class LengthOfLongestIncreasingPath {
                 findLongestPath(grid, i, j, rows, cols, cache);
             }
         }
+
+        return -1;
     }
 
     private int findLongestPath(int[][] grid, int i, int j, int rows, int cols, int[][] cache) {
@@ -51,6 +53,7 @@ public class LengthOfLongestIncreasingPath {
 
         int max = 0;
 
-
+        cache[i][j] = max + 1;
+        return cache[i][j];
     }
 }
