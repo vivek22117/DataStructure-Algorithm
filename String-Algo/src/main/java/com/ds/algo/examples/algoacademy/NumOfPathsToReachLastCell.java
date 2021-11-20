@@ -29,11 +29,11 @@ public class NumOfPathsToReachLastCell {
         }
 
         if(row == grid.length -1) {
-            return findPaths(grid, grid.length -1, col + 1, target);
+            return findPaths(grid, row, col + 1, target);
         }
 
         if(col == grid[0].length - 1) {
-            return findPaths(grid, row - 1, grid[row].length -1, target);
+            return findPaths(grid, row + 1, col, target);
         }
 
         int rowPath = findPaths(grid, row + 1, col, target);
