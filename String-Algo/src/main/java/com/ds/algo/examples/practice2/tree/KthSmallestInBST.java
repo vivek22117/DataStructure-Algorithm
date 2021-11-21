@@ -27,6 +27,7 @@ public class KthSmallestInBST {
         inorder(head.left, nums, k);
         if(++nums[0] == k) {
             nums[1] = head.val;
+            return;
         }
         inorder(head.right, nums, k);
     }
