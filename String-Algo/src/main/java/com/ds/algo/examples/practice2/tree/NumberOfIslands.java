@@ -23,6 +23,7 @@ public class NumberOfIslands {
         System.out.println("Total islands: " + islands);
     }
 
+//  Big O(n*m)
     private static int checkNumberOfIslands(int[][] inputMatrix) {
         if(inputMatrix == null || inputMatrix.length == 0) {
             return 0;
