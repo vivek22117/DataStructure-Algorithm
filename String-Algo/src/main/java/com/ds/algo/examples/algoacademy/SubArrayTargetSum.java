@@ -8,8 +8,8 @@ Explanation: Subarray with sum equal to Target
  */
 public class SubArrayTargetSum {
 
-//    private static int[] input = {10, 3, 5, 8, 6, 12, 20, 15, 31};
-    private static int[] input = {31,10};
+    private static int[] input = {10, 1, 5, 0, 11, 12, 20, 3, 28};
+//    private static int[] input = {31,10};
 
     public static void main(String[] args) {
         SubArrayTargetSum sum = new SubArrayTargetSum();
@@ -29,7 +29,7 @@ public class SubArrayTargetSum {
         int sum = nums[0];
         int endIndex = 1;
 
-        while (endIndex < N) {
+        while (endIndex < N || startIndex < N) {
 
             if(sum < target) {
                 sum += nums[endIndex];
