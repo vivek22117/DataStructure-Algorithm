@@ -1,11 +1,14 @@
 package test;
 
+import javax.crypto.spec.PSource;
 import java.io.*;
 import java.util.*;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.function.BinaryOperator;
 import java.util.function.Function;
+import java.util.function.Supplier;
 import java.util.function.ToLongFunction;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -13,10 +16,13 @@ import java.util.stream.Stream;
 public class ParseLogsFetchTopK {
 
     private static String logPath = "C:\\projects\\Development\\DataStructure-Algorithm\\data";
+    private static String apacheLogPath = "C:\\projects\\Development\\DataStructure-Algorithm\\data\\apache_log";
 
     public static void main(String[] args) throws IOException {
         ParseLogsFetchTopK parser = new ParseLogsFetchTopK();
-        parser.readAndParseLogs(logPath);
+//        parser.readAndParseLogs(logPath);
+
+        parser.processLogFile(apacheLogPath, 10);
     }
 
     public void readAndParseLogs(String logPath) throws IOException {
@@ -36,7 +42,7 @@ public class ParseLogsFetchTopK {
         }
 
 //        AscendingOrder
-        Collections.sort(sortedList, Comparator.comparingLong(new ToLongFunction<Map.Entry<String, Long>>() {
+        sortedList.sort(Comparator.comparingLong(new ToLongFunction<Map.Entry<String, Long>>() {
             @Override
             public long applyAsLong(Map.Entry<String, Long> entry) {
                 return entry.getValue();
@@ -59,5 +65,40 @@ public class ParseLogsFetchTopK {
         sortedList.stream().limit(2).forEach(value -> {
             System.out.println(value.getKey() + " " + value.getValue());
         });
+    }
+
+
+
+    public void processLogFile(String path, int k) throws IOException {
+
+        Path logFilePath = Paths.get(path);
+
+        Stream<String> logs = Files.lines(logFilePath);
+
+        Map<String, Long> mapOfIpAndFrequency = logs.map(line -> {
+            return line.split(" ")[0];
+        }).collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
+
+        Map<String, Long> sortedMap = mapOfIpAndFrequency.entrySet().stream()
+                .sorted(Map.Entry.<String, Long>comparingByValue().reversed())
+                .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue, new BinaryOperator<Long>() {
+                    @Override
+                    public Long apply(Long e1, Long e2) {
+                        return e1;
+                    }
+                }, new Supplier<Map<String, Long>>() {
+                    @Override
+                    public Map<String, Long> get() {
+                        return new LinkedHashMap<>();
+                    }
+                }));
+
+        LinkedHashMap<String, Long> sortedMap2 = mapOfIpAndFrequency.entrySet().stream()
+                .sorted(Map.Entry.<String, Long>comparingByValue())
+                .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue, (e1, e2) -> e1, LinkedHashMap::new));
+        System.out.println(sortedMap);
+        System.out.println(sortedMap2);
+
+//        new ArrayList<>(mapOfIpAndFrequency.entrySet()).sort(Map.Entry.comparingByValue().reversed());
     }
 }
