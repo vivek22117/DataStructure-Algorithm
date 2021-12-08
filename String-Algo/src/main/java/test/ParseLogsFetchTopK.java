@@ -23,6 +23,7 @@ public class ParseLogsFetchTopK {
 //        parser.readAndParseLogs(logPath);
 
         parser.processLogFile(apacheLogPath, 10);
+        parser.processApacheLogs(apacheLogPath, 10);
     }
 
     public void readAndParseLogs(String logPath) throws IOException {
@@ -100,5 +101,22 @@ public class ParseLogsFetchTopK {
         System.out.println(sortedMap2);
 
 //        new ArrayList<>(mapOfIpAndFrequency.entrySet()).sort(Map.Entry.comparingByValue().reversed());
+    }
+
+    public void processApacheLogs(String path, Integer topK) throws IOException {
+        Path logPath = Paths.get(path);
+
+        Stream<String> lines = Files.lines(logPath);
+
+       Map<String, Long> mapOfFrequency = lines.map(line -> {
+            return line.split(" ")[0];
+        }).collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
+
+       List<Map.Entry<String, Long>> listOfMapSet = new ArrayList<>(mapOfFrequency.entrySet());
+
+       Map<String, Long> sortedMap = listOfMapSet.stream().limit(topK).sorted(Map.Entry.<String, Long>comparingByValue().reversed())
+               .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue, (e1, e2) -> e1, LinkedHashMap::new));
+
+       System.out.println(sortedMap);
     }
 }
