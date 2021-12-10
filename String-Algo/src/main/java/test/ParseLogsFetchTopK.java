@@ -66,6 +66,8 @@ public class ParseLogsFetchTopK {
         sortedList.stream().limit(2).forEach(value -> {
             System.out.println(value.getKey() + " " + value.getValue());
         });
+
+        lines.close();
     }
 
 
@@ -100,6 +102,7 @@ public class ParseLogsFetchTopK {
         System.out.println(sortedMap);
         System.out.println(sortedMap2);
 
+        logs.close();
 //        new ArrayList<>(mapOfIpAndFrequency.entrySet()).sort(Map.Entry.comparingByValue().reversed());
     }
 
@@ -117,6 +120,7 @@ public class ParseLogsFetchTopK {
        Map<String, Long> sortedMap = listOfMapSet.stream().limit(topK).sorted(Map.Entry.<String, Long>comparingByValue().reversed())
                .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue, (e1, e2) -> e1, LinkedHashMap::new));
 
+       lines.close();
        System.out.println(sortedMap);
     }
 }
