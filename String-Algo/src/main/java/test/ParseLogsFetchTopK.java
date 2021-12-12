@@ -24,6 +24,7 @@ public class ParseLogsFetchTopK {
 
         parser.processLogFile(apacheLogPath, 10);
         parser.processApacheLogs(apacheLogPath, 10);
+        parser.parseApacheLogs(apacheLogPath, 2);
     }
 
     public void readAndParseLogs(String logPath) throws IOException {
@@ -137,11 +138,16 @@ public class ParseLogsFetchTopK {
 
         List<Map.Entry<String, Long>> listOfFrequency = new ArrayList<>(mapOfFrequency.entrySet());
 
-        Map<String, Long> sortedMap = listOfFrequency.stream().sorted(Map.Entry.comparingByValue())
+        Map<String, Long> sortedMap = listOfFrequency.stream()
+                .sorted(Map.Entry.<String, Long>comparingByValue().reversed())
                 .collect(Collectors.toMap(Map.Entry::getKey,
                         Map.Entry::getValue, (e1, e2) -> e1, LinkedHashMap::new));
-        int size = topK;
+        int size = 0;
         for(Map.Entry<String, Long> value : sortedMap.entrySet()) {
+            if(size < topK) {
+                System.out.println(value.getKey() + " ==> " + value.getValue());
+                size++;
+            }
 
         }
     }
