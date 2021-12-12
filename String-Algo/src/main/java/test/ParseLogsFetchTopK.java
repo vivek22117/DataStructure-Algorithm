@@ -128,5 +128,11 @@ public class ParseLogsFetchTopK {
         Path path = Paths.get(filePath);
 
         Stream<String> lines = Files.lines(path);
+
+        Map<String, Long> mapOfFrequency = lines.map(line -> {
+            return line.split(" ")[0];
+        }).collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
+
+        System.out.println("Frequency of IPs: " + mapOfFrequency);
     }
 }
