@@ -123,4 +123,10 @@ public class ParseLogsFetchTopK {
        lines.close();
        System.out.println(sortedMap);
     }
+
+    public void parseApacheLogs(String filePath, Integer topK) throws IOException {
+        Path path = Paths.get(filePath);
+
+        Stream<String> lines = Files.lines(path);
+    }
 }
