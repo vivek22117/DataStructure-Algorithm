@@ -134,5 +134,15 @@ public class ParseLogsFetchTopK {
         }).collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
 
         System.out.println("Frequency of IPs: " + mapOfFrequency);
+
+        List<Map.Entry<String, Long>> listOfFrequency = new ArrayList<>(mapOfFrequency.entrySet());
+
+        Map<String, Long> sortedMap = listOfFrequency.stream().sorted(Map.Entry.comparingByValue())
+                .collect(Collectors.toMap(Map.Entry::getKey,
+                        Map.Entry::getValue, (e1, e2) -> e1, LinkedHashMap::new));
+        int size = topK;
+        for(Map.Entry<String, Long> value : sortedMap.entrySet()) {
+
+        }
     }
 }
