@@ -150,5 +150,7 @@ public class ParseLogsFetchTopK {
             }
 
         }
+        lines.close();;
+
     }
 }
