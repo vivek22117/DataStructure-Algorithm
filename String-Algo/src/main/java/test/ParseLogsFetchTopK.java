@@ -153,4 +153,12 @@ public class ParseLogsFetchTopK {
         lines.close();;
 
     }
+
+    public void processLogFiles(String filePath, Integer topK) throws IOException {
+        Path path = Paths.get(filePath);
+
+        Stream<String> lines = Files.lines(path);
+
+        lines.close();
+    }
 }
