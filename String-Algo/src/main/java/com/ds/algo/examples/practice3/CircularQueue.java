@@ -24,4 +24,9 @@ public class CircularQueue<T> {
         return headIndex == SPECIAL_EMPTY_VALUE;
     }
 
+    public boolean isFull() {
+        int nextIndex = (tailIndex + 1) % element.length;
+        return nextIndex == headIndex;
+    }
+
 }
