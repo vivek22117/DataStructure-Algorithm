@@ -20,6 +20,8 @@ public class CircularQueue<T> {
         element = (T[])Array.newInstance(clazz, size);
     }
 
-
+    public boolean isEmpty() {
+        return headIndex == SPECIAL_EMPTY_VALUE;
+    }
 
 }
