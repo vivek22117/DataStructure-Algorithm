@@ -29,4 +29,16 @@ public class CircularQueue<T> {
         return nextIndex == headIndex;
     }
 
+    public static class QueueOverFlowException extends Exception {
+        public QueueOverFlowException() {
+            super();
+        }
+    }
+
+    public static class QueueUnderFlowException extends Exception {
+        public QueueUnderFlowException() {
+            super();
+        }
+    }
+
 }
