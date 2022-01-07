@@ -17,6 +17,9 @@ public class CircularQueue<T> {
     }
 
     public CircularQueue(Class<T> clazz, int size) {
+        if(size < 0) {
+            throw new IllegalArgumentException();
+        }
         elements = (T[]) Array.newInstance(clazz, size);
     }
 
