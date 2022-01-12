@@ -176,4 +176,26 @@ public class ParseLogsFetchTopK {
         }
         lines.close();
     }
+
+    public void identifyCacheFrequency(String filePath, Integer topK) throws IOException {
+        Path path = Paths.get(filePath);
+
+        Stream<String> lines = Files.lines(path);
+
+        Map<String, Long> mapOfFrequency = lines.map(line -> {
+            return line.split(" ")[0];
+        }).collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
+
+        Map<String, Long> sortedMap = mapOfFrequency.entrySet().stream().sorted(Map.Entry.comparingByValue())
+                .collect(Collectors.toMap(entry -> entry.getKey(), entry -> entry.getValue(), (e1, e2) -> e1, LinkedHashMap::new));
+
+        int size = 0;
+        for(Map.Entry<String, Long> entry : sortedMap.entrySet()) {
+            if(size < topK) {
+                System.out.println(entry.getKey() + " ==> " + entry.getValue());
+                size++;
+            }
+        }
+        lines.close();
+    }
 }
