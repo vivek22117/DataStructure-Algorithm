@@ -18,7 +18,7 @@ public class CompressArray {
         System.out.println(result);
     }
 
-    public int compress(char[] chars) {
+    private int compress(char[] chars) {
         if(chars.length == 0) {
             return -1;
         }
@@ -46,4 +46,36 @@ public class CompressArray {
         return index;
     }
 
+
+    private  int compressCharArray(char[] chars) {
+        if(chars.length == 0) {
+            return -1;
+        }
+
+        int index  = 0;
+        int i = 0;
+        while(i < chars.length) {
+            char ch = chars[i];
+            int j = i;
+
+            while (j < chars.length && chars[j] == ch) {
+                j++;
+            }
+
+            int count = j - 1;
+            chars[index++] = ch;
+            if(count > 1) {
+                String value = count + "";
+                char[] values = value.toCharArray();
+                for(char val : values) {
+                    chars[index++] = val;
+                }
+            }
+
+            i = j;
+        }
+
+        System.out.println(Arrays.toString(Arrays.copyOfRange(chars, 0, index)));
+        return index;
+    }
 }
