@@ -26,6 +26,8 @@ public class FloodFillAlgo {
         FloodFillAlgo fill = new FloodFillAlgo();
         int[][] result = fill.fillGrid(grid, 1, 7);
 
+        int[][] newGrid = fill.fillGridWithColor(grid, 0, 9);
+
     }
 
     public int[][] fillGrid(int[][] grid, int oldColor, int color) {
@@ -70,6 +72,50 @@ public class FloodFillAlgo {
         for (int[] matrix : inputMatrix) {
             System.out.print("|");
             for (int i : matrix) {
+                System.out.print(i + "|");
+            }
+            System.out.println();
+        }
+    }
+
+    private int[][] fillGridWithColor(int[][] grid, int oldColor, int newColor) {
+        if(grid.length == 0) {
+            return new int[][]{};
+        }
+
+        for(int i = 0; i < grid.length; i++) {
+            for(int j = 0; j < grid[i].length; j++) {
+                if(grid[i][j] == oldColor) {
+                    fillUpGrid(grid, i, j, oldColor, newColor);
+                }
+            }
+        }
+
+        printNewGrid(grid);
+        return grid;
+
+    }
+
+    private void fillUpGrid(int[][] grid, int row, int col, int oldColor, int newColor) {
+        if(row < 0 || row > grid.length || col < 0 || col > grid[0].length) {
+            return;
+        }
+
+        if(grid[row][col] != oldColor) {
+            return;
+        }
+
+        grid[row][col] = newColor;
+        fillUpGrid(grid, row + 1, col, oldColor, newColor);
+        fillUpGrid(grid, row -1, col, oldColor, newColor);
+        fillUpGrid(grid, row, col + 1, oldColor, newColor);
+        fillUpGrid(grid, row, col - 1, oldColor, newColor);
+    }
+
+    private void printNewGrid(int[][] grid) {
+        for(int [] matrix : grid) {
+            System.out.print("|");
+            for(int i : matrix) {
                 System.out.print(i + "|");
             }
             System.out.println();
