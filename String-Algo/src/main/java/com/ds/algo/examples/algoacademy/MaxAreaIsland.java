@@ -22,8 +22,11 @@ public class MaxAreaIsland {
 
     public static void main(String[] args) {
         MaxAreaIsland size = new MaxAreaIsland();
-        int result = size.findMaxArea(input);
-        System.out.println(result);
+//        int result = size.findMaxArea(input);
+
+        int maxAreaIsland = size.findMaxAreaIsland(input);
+//        System.out.println(result);
+        System.out.println(maxAreaIsland);
     }
 
     public int findMaxArea(int[][] grid) {
@@ -32,7 +35,6 @@ public class MaxAreaIsland {
             for(int j = 0; j < grid[i].length; j++) {
                 if(grid[i][j] == 1) {
                     int currentSize = dfs(grid, i, j);
-                    System.out.println(currentSize);
                     maxResult = Math.max(maxResult, currentSize);
                 }
             }
@@ -65,14 +67,28 @@ public class MaxAreaIsland {
         for(int i = 0; i < island.length; i++) {
             for(int j = 0; j < island[i].length; j++) {
                 if(island[i][j] == 1) {
-                    calculateArea(island, i, j);
+                    int currentArea = calculateArea(island, i, j);
+                    maxArea = Math.max(currentArea, maxArea);
                 }
             }
         }
+        return maxArea;
     }
 
     private int calculateArea(int[][] island, int row, int col) {
+        if(row < 0 || row >= island.length || col < 0 || col >= island[row].length || island[row][col] == 0) {
+            return 0;
+        }
 
+        island[row][col] = 0;
+        int size = 1;
+
+        size += calculateArea(island, row + 1, col);
+        size += calculateArea(island, row - 1, col);
+        size += calculateArea(island, row, col + 1);
+        size += calculateArea(island, row, col - 1);
+
+        return size;
     }
 
 }
