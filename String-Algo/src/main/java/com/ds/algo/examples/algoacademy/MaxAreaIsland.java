@@ -56,4 +56,23 @@ public class MaxAreaIsland {
         return size;
     }
 
+    private int findMaxAreaIsland(int[][] island) {
+        if(island.length == 0) {
+            return -1;
+        }
+
+        int maxArea = Integer.MIN_VALUE;
+        for(int i = 0; i < island.length; i++) {
+            for(int j = 0; j < island[i].length; j++) {
+                if(island[i][j] == 1) {
+                    calculateArea(island, i, j);
+                }
+            }
+        }
+    }
+
+    private int calculateArea(int[][] island, int row, int col) {
+
+    }
+
 }
