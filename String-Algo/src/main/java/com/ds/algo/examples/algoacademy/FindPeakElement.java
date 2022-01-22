@@ -10,11 +10,14 @@ Output: Index 2
  */
 public class FindPeakElement {
 
-    private static int[] input = {1, 2, 1, 3, 5, 6, 4};
+    private static int[] input = {1, 2, 5, 3, 5, 6, 4};
 
     public static void main(String[] args) {
         FindPeakElement peak = new FindPeakElement();
         int result = peak.getPeak(input);
+
+        int peakElement = peak.getPeakElement(input);
+        System.out.println(peakElement);
 
         System.out.println(result);
     }
@@ -44,5 +47,31 @@ public class FindPeakElement {
         }
 
         return nums[i - 1] < nums[i] && nums[i] > nums[i + 1];
+    }
+
+    private int getPeakElement(int[] nums) {
+        if(nums.length == 0) {
+            return -1;
+        }
+
+        for(int i = 0; i < nums.length; i++) {
+            if(isPeakElement(nums, i)) {
+                return i;
+            }
+        }
+
+        return 0;
+    }
+
+    private boolean isPeakElement(int[] nums, int index) {
+        if(index == 0) {
+            return nums[index] > nums[index + 1];
+        }
+
+        if(index == nums.length - 1) {
+            return nums[index] > nums[index - 1];
+        }
+
+        return nums[index - 1] < nums[index] && nums[index] > nums[index + 1];
     }
 }
