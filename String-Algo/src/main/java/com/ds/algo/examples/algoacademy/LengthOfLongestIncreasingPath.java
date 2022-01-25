@@ -39,7 +39,7 @@ public class LengthOfLongestIncreasingPath {
         int[][] cache = new int[rows][cols];
         for(int i = 0; i < grid.length; i++) {
             for(int j = 0; j < grid[i].length; j++) {
-                findLongestPath(grid, i, j, rows, cols, cache);
+                return findLongestPath(grid, i, j, rows, cols, cache);
             }
         }
 
