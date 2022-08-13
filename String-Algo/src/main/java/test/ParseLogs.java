@@ -18,11 +18,11 @@ public class ParseLogs {
     private static String logPath = "C:\\projects\\Development\\DataStructure-Algorithm\\data";
 
     public static void main(String[] args) throws IOException, URISyntaxException {
-//        System.out.println(readAndParse(logPath));
+        System.out.println(parseLogs(logPath));
 
 //        System.out.println(solve("59"));
 //        System.out.println(solveSecond("ababa", new int[]{1,2,1,2,1,2}));
-        System.out.println(breakIntoTwo(new int[]{15, 12, 14, 11, 16, 1, 11, 10, 22}));
+//        System.out.println(breakIntoTwo(new int[]{15, 12, 14, 11, 16, 1, 11, 10, 22}));
 //        System.out.println(breakIntoTwoWithMin(new int[]{15, 12, 14, 6, 13, 1, 11, 10, 22}));
     }
 
@@ -40,6 +40,28 @@ public class ParseLogs {
             if (entry.getValue() > max) {
                 ip = entry.getKey();
                 max = entry.getValue();
+            }
+        }
+
+        lines.close();
+        return ip;
+    }
+
+    private static String parseLogs(String logfile) throws IOException {
+        Long maxValue = Long.MIN_VALUE;
+        String ip = null;
+
+        Path path = Paths.get(logfile, "apache_log");
+
+        Stream<String> lines = Files.lines(path);
+
+        Map<String, Long> collect = lines.map(line -> line.split(" ")[0])
+                .collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
+
+        for(Map.Entry<String, Long> entry : collect.entrySet()) {
+            if(entry.getValue() > maxValue) {
+                ip = entry.getKey();
+                maxValue = entry.getValue();
             }
         }
 
