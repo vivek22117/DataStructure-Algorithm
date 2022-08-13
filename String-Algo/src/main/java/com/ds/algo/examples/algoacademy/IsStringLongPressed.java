@@ -57,4 +57,39 @@ public class IsStringLongPressed {
 
         return true;
     }
+
+    private static boolean isLongPressedName(String input_a, String input_b) {
+        int m = input_a.length();
+        int n = input_b.length();
+
+        if(m < n ) {
+            return  false;
+        }
+
+        int i = 0;
+        int j = 0;
+        while (i < m && j < n) {
+            char ch_a = input_a.charAt(i);
+            char ch_b = input_b.charAt(j);
+
+            if(ch_a != ch_b) {
+                return false;
+            }
+
+            int a = i + 1;
+            int b = j + 1;
+            while (a <= input_a.length() - 1 && input_a.charAt(a) == ch_a) {
+                a++;
+            }
+
+            while (b <= input_b.length() - 1 && input_b.charAt(b) == ch_b) {
+                b++;
+            }
+
+            i = a;
+            j = b;
+        }
+
+        return true;
+    }
 }
