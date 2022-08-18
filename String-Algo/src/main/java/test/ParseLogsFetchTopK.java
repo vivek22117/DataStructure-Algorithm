@@ -20,7 +20,7 @@ public class ParseLogsFetchTopK {
 
     public static void main(String[] args) throws IOException {
         ParseLogsFetchTopK parser = new ParseLogsFetchTopK();
-//        parser.readAndParseLogs(logPath);
+        parser.readAndParseLogs(logPath);
 
 //        parser.processLogFile(apacheLogPath, 10);
 //        parser.processApacheLogs(apacheLogPath, 10);
@@ -55,12 +55,7 @@ public class ParseLogsFetchTopK {
         System.out.println(sortedList);
 
 //        ReverserOrder
-        Collections.sort(sortedList, Comparator.comparingLong(new ToLongFunction<Map.Entry<String, Long>>() {
-            @Override
-            public long applyAsLong(Map.Entry<String, Long> entry) {
-                return entry.getValue();
-            }
-        }).reversed());
+        Collections.sort(sortedList, Comparator.comparingLong((ToLongFunction<Map.Entry<String, Long>>) Map.Entry::getValue).reversed());
 
         System.out.println(map);
         System.out.println(sortedList);
@@ -186,6 +181,7 @@ public class ParseLogsFetchTopK {
             return line.split(" ")[0];
         }).collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
 
+//        LinkedHashMap is used to maintain the sequence after sorting.
         Map<String, Long> sortedMap = mapOfFrequency.entrySet().stream().sorted(Map.Entry.comparingByValue())
                 .collect(Collectors.toMap(entry -> entry.getKey(), entry -> entry.getValue(), (e1, e2) -> e1, LinkedHashMap::new));
 
