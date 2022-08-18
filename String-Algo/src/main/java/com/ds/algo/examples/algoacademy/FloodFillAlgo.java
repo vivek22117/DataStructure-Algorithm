@@ -38,6 +38,8 @@ public class FloodFillAlgo {
             return new int[][]{};
         }
 
+        Math.min(oldColor, color);
+
         int rows = grid.length;
         int cols = grid[0].length;
 
