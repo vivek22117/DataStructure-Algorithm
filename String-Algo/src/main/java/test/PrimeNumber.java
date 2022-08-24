@@ -1,11 +1,14 @@
 package test;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 public class PrimeNumber {
 
     private static int inputNumber = 17;
 
     public static void main(String[] args) {
-        isPrimeNumber(inputNumber);
+        Date date1 = null;
     }
 
     private static boolean isPrimeNumber(int inputNumber) {
